@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>EQUIPO 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/hover.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+<!-- BOODSTRAP -->
+
+<link rel="stylesheet" href="css/bootstrap.min.css">  
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+
+<script src="css/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+<!-- Empieza LightBox  -->
+<link rel="stylesheet" href="js/lightbox/vlb_files1/vlightbox1.css" type="text/css" />
+<link rel="stylesheet" href="js/lightbox/vlb_files1/visuallightbox.css" type="text/css" media="screen" />
+<script src="js/lightbox/vlb_engine/visuallightbox.js" type="text/javascript"></script>
+<script src="js/lightbox/vlb_engine/vlbdata1.js" type="text/javascript"></script>
+<!-- Termina LightBox -->
+
+
+
+<!-- Fuente -->
+	<link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
+
+<!-- Header -->
+<div class="" id="header"></div> 
+
+  <script src="css/wow.js"></script>
+  <script>new WOW().init()</script>
+
+  <!-- Start css3menu.com HEAD section -->
+		<link rel="stylesheet" href="MenuNav/style.css" type="text/css" /><style type="text/css">._css3m{display:none}</style>
+		<!-- End css3menu.com HEAD section -->
+		
+		<!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
+		<link rel="stylesheet" type="text/css" href="banner/objetosBanner/style.css" />
+
+<!-- End WOWSlider.com HEAD section -->
+
+<!-- Palabra clave buscar -->
+
+			<script>
+				const queryString = window.location.search;
+				console.log(queryString);
+				const urlParams = new URLSearchParams(queryString);
+				const id = urlParams.get('id');
+				//console.log(id);
+				
+
+				//descripcion de producto    
+				 $(document).ready(function(){
+				      $.getJSON('http://localhost:9091/api/v1/producto/'+id, function(dato) {
+							document.getElementById("id_foto").value = dato.imagen1;
+							console.log(dato.imagen1);
+					  });
+				  });
+				
+				
+			</script>
+
+
+  <body>
+
+    
+        
+          <div class="main">
+				
+				<p class="fuente" style="font-size:18px"><a href="index.html"><span style="color:#25C6C1">INICIO </span></a> -> <script> document.write(dato.nombre) </script> </p>
+	
+				<div class="row">
+                  <div class="col-md-6">
+                        
+                        <!-- Imagenes pequeña -->
+                        <div class="card card-body">
+                          <div class="row">
+                              
+                              <div class="col-md-3 ocul">
+                                      <br>
+										<!-- <a class="vlightbox1" href="http://localhost:9091/api/v1/producto/pic/"> -->
+				    						<div class="" id="imagen2"></div>
+									<!--	</a> -->
+                                      <br>
+                                
+                              </div>
+                                 
+
+                              <!-- Imagen grande -->
+                              <div class="col-md-8">
+									<a class="vlightbox1" href="http://localhost:9091/api/v1/producto/pic/661f6b0b-9a71-4b4a-93af-bb41d2bb9a9d"> 
+										<div class="" id="imagen1"></div>
+									</a> 
+                              </div>
+                              
+
+
+                          </div>
+
+                        </div>
+                  </div>
+                  
+                <!-- Descripcion de producto -->  
+                  <div class="col-md-6">
+                        <div class="card card-body">
+							 
+							<div class="" id="tablaCategoria"></div>
+			 
+		             
+                        </div>
+                  </div>
+
+              </div>
+			
+
+          </div>
+
+          <div class="limpiar"></div>
+
+        </div>
+        </div>
+
+			<!-- carrito -->
+				<div class="" id="carrito"></div> 
+        
+  </body>
+
+  		<!-- Productos -->
+			<div class="" id="footer"></div> 
+			
+			
+			   <script type="text/javascript">
+				//descripcion de producto    
+				 $(document).ready(function(){
+				      $.getJSON('http://localhost:9091/api/v1/producto/'+id, function(json) {
+							var tr=[];
+								tr.push('<p class="fuente" style="font-size:25px"><span>'+json.nombre+'</span></p>');
+								tr.push('<p class="fuente" style="font-size:25px"><span style="color: #532699"> Precio : </span> <span style="color: #BD371F"> '+json.precio+' </span>');
+								tr.push('<input type="number" min="1" max="7" value="1">');
+								tr.push('</p>');
+                                tr.push('<p class="fuente" style="font-size:25px"><span style="color: #532699">Categoría : </span>'+json.categoriaid+'</p>');
+								tr.push('<p class="fuente" style="font-size:20px"> <span style="color:#532699">Descripción : </span> '+json.descripcion+' </p>');        
+							
+							$('#tablaCategoria').append($(tr.join('')));  
+					  });
+				  });
+					
+				  //imagenes de producto			
+				  $(document).ready(function() {
+				       $.getJSON('http://localhost:9091/api/v1/producto/'+id, function(json) {
+	                      	var tr=[];									
+								tr.push('<a class="vlightbox1" href="http://localhost:9091/api/v1/producto/pic/'+json.imagen2+'">');
+								tr.push('<img src="http://localhost:9091/api/v1/producto/pic/'+json.imagen2+'" alt="no_imagen" width="97%">');
+								tr.push('</a>');
+								tr.push('<br>');
+								tr.push('<a class="vlightbox1" href="http://localhost:9091/api/v1/producto/pic/'+json.imagen3+'">');
+	                            tr.push('<img src="http://localhost:9091/api/v1/producto/pic/'+json.imagen3+'" alt="no_imagen" width="97%">');
+								tr.push('</a>');
+	                             
+				
+							$('#imagen2').append($(tr.join('')));		
+					  });
+				  }); 
+		
+				  //imagenes de grande			
+				  $(document).ready(function() {
+				       $.getJSON('http://localhost:9091/api/v1/producto/'+id, function(json) {
+	                      	var tr=[];									
+								//tr.push('<a class="vlightbox1" href="http://localhost:9091/api/v1/producto/pic/'+json.imagen1+'"><img src="http://localhost:9091/api/v1/producto/pic/'+json.imagen1+'" alt="no_imagen" width="97%"></a>');
+								//tr.push('<a class="vlightbox1" href="http://localhost:9091/api/v1/producto/pic/'+json.imagen1+'">');
+								tr.push('<img src="http://localhost:9091/api/v1/producto/pic/'+json.imagen1+'" alt="no_imagen" width="97%">');
+								//tr.push('</a>');
+								tr.push('<br>');
+				
+							$('#imagen1').append($(tr.join('')));		
+					  });
+				  }); 	
+                                       
+           		</script> 
+
+	<script type="text/javascript" src="js/funciones.js"></script>
+
+</html>
+
+
+
+<!--                    
+	         <p class="fuente" style="font-size:25px"><span></span></p>
+             <p class="fuente" style="font-size:25px"><span style="color: #532699"> Precio : </span> <span style="color: #BD371F"> x </span>  
+                     <input type="number" min="1" max="7" value="1">
+             </p>
+                                              
+                   <p class="fuente" style="font-size:25px"><span style="color: #532699">Categoría : </span></p>
+                   <p class="fuente" style="font-size:20px"> <span style="color:#532699">Descripción : </span> </p>
+
+-->

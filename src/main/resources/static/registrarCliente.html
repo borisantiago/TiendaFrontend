@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>EQUIPO 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/hover.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+<!-- BOODSTRAP -->
+
+<link rel="stylesheet" href="css/bootstrap.min.css">  
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+<script src="css/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!-- FIN BOODSTRAP -->
+
+<!-- Fuente -->
+	<link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
+
+<!-- Header -->
+<div class="" id="header"></div> 
+
+  <script src="css/wow.js"></script>
+  <script>new WOW().init()</script>
+
+  <!-- Start css3menu.com HEAD section -->
+		<link rel="stylesheet" href="MenuNav/style.css" type="text/css" /><style type="text/css">._css3m{display:none}</style>
+		<!-- End css3menu.com HEAD section -->
+		
+		<!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
+		<link rel="stylesheet" type="text/css" href="banner/objetosBanner/style.css" />
+
+<!-- End WOWSlider.com HEAD section -->
+
+<!-- Palabra clave buscar -->
+
+
+<body>
+
+
+ <div class="main">
+            <p class="fuente" style="font-size:18px"><a href="../"><span style="color:#25C6C1">INICIO </span></a> <span> -> CUENTA </span> </p>
+        </div>
+
+            <div class="container">
+              <div class="row">
+
+                   <div class="col-md-3"> 
+                   </div> 
+                  
+                    <div class="col-md-6 p-3"> 
+                      <div class="card card-body center">
+
+                        <form id="form_datos" name="form_datos" enctype="multipart/form-data" method="POST">
+                            <div class="form-group">
+                              <label for="nombre">Nombre</label>
+                              <input onkeyup="colocar_nombre()" type="text" class="form-control" name="nombre" id="nombre" placeholder="ejemplo: Santiago">
+                            </div>
+                                <!-- Alerta nombre-->
+                                <div class="alert alert-danger alert-dismissible fade show ocultar" role="alert" id="alerta_nombre">
+                                      <strong>Nombre no valido!</strong> no puede tener numeros ni signos!
+                                          <span aria-hidden="true">&times;</span>
+                                      </button>        
+                                  </div> 
+
+                            <div class="form-group">
+                              <label for="Apellido">Apellido</label>
+                              <input onkeyup="colocar_apellido()" type="text" class="form-control" name="apellido" id="apellido" placeholder="ejemplo: Bravo">
+                            </div>
+                                <!-- Alerta apellido-->
+                                <div class="alert alert-danger alert-dismissible fade show ocultar" role="alert" id="alerta_apellido">
+                                      <strong>Apellido no valido!</strong> no puede tener numeros ni signos!
+                                          <span aria-hidden="true">&times;</span>
+                                      </button>        
+                                  </div> 
+
+                            <div class="form-group">
+                              <label for="exampleFormControlInput1">Correo electrónico</label>
+                              <input onkeyup="colocar_email()" type="email" class="form-control" name="email" id="email" placeholder="ejemplo:santiago@gmail.com">
+                              <small id="emailHelp" class="form-text text-muted">Se le enviará un correo de confirmación</small>
+                            </div>
+                            
+                            <!-- alert email -->
+                              <div class="alert alert-danger alert-dismissible fade show ocultar" role="alert" id="avisomail">
+                                      <strong>Email!</strong> no valido, sigue digitando!
+                                          <span aria-hidden="true">&times;</span>
+                                      </button>        
+                                  </div> 
+                        
+                          <div class="row">
+                            <div class="form-group col-md-3">
+                                <label for="inputState">Provincia</label>
+                                <select onclick="colocar_provincia()"  name="provincia" id="provincia" class="form-control">
+                                  <option selected>Escojer...</option>
+                                  
+                                  <option>Bolívar</option>
+                                  <option>Chimborazo</option>
+                                  <option>Cotopaxi</option>
+                                  <option>Pichincha</option>
+                                  <option>Tungurahua</option>
+                                  
+                                </select>
+                              </div>
+                            <div class="form-group col-md-3">
+                              <label for="inputZip">Ciudad</label>
+                              <input onkeyup="colocar_ciudad()" type="text" class="form-control"  name="ciudad" id="ciudad" placeholder="ejemplo: Quito">
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label for="inputCity">Dirección</label>
+                              <input onkeyup="colocar_direccion()" type="text" class="form-control" name="direccion" id="direccion" placeholder="ejemplo: Alonso de Ángulo S619E e Iturralde.">
+                            </div>
+                          </div>
+            
+                              <div class="form-group">
+                                  <label for="exampleInputEmail1">Telefono</label>
+                                  <input onkeyup="colocar_telefono()" type="text" class="form-control"  name="telefono" id="telefono" placeholder="ejemplo: 0991239876">
+                              </div>
+                                  <!-- Alerta numero-->
+                                <div class="alert alert-danger alert-dismissible fade show ocultar" role="alert" id="alerta_telefono">
+                                      <strong>Numero no valido!</strong> no puede tener letras ni signos!
+                                          <span aria-hidden="true">&times;</span>
+                                      </button>        
+                                  </div>
+
+
+                              <div class="form-group">
+                                  <label for="exampleInputPassword1">Escribe una contraseña</label>
+                                  <input onkeyup="colocar_contrasenia()" type="password" class="form-control"  name="contrasenia" id="contrasenia" placeholder=" ********">
+                              </div>
+
+                              <div class="form-group">
+                                  <label for="exampleInputPassword1">Escribe la misma contraseña</label>
+                                  <input onkeyup="colocar_contrasenia2()" type="password" class="form-control"  name="contrasenia2" placeholder=" ********">
+                              </div>
+                                <!-- Alerta contrasenia2-->
+                                  <div class="alert alert-danger alert-dismissible fade show ocultar" role="alert" id="alerta_contra">
+                                      <strong>La contraseña!</strong> debe ser igual que la anterior para registrarse!
+                                          <span aria-hidden="true">&times;</span>
+                                      </button>        
+                                  </div>  
+
+                              <div class="form-check">
+                                <input onclick="condiciones_aceptadas()" type="checkbox" class="form-check-input" id="condiciones">
+                                <label class="form-check-label" for="exampleCheck1">Aceptar terminos y condiciones <a href="ver.php">ver</a></label>
+                              </div>
+
+                                  <div  class="alert alert-danger alert-dismissible fade show ocultar" role="alert" id="alerta_terminos">
+                                      <strong>No registrado </strong> debe aceptar los terminos y condiciones!
+                                          <span aria-hidden="true">&times;</span>
+                                      </button>        
+                                  </div>
+
+                                  
+                                    <!-- Alert no guardado Correo electronico repetido -->
+                                        <div  class="alert alert-danger alert-dismissible fade show ocultar" role="alert" id="error">
+                                              <strong>Noooooo aceptaddo </strong> el correo electronico ya estra registrado!
+                                          <span aria-hidden="true">&times;</span>
+                                        </div>
+                                    <!-- Alert exito -->
+                                        <div  class="alert alert-success alert-dismissible fade show ocultar" role="alert" id="exito">
+                                                <strong>YAAAAAA</strong> se guardo correctamente!
+                                          <span aria-hidden="true">&times;</span>
+                                        </div> 
+                                    <!-- Alert no guardado llenar todos los datos -->
+                                        <div  class="alert alert-danger alert-dismissible fade show ocultar" role="alert" id="llenar_datos">
+                                              <strong>Te falta de llenar  </strong> todos los datos!
+                                          <span aria-hidden="true">&times;</span>
+                                        </div>
+                                    <!-- Alert no guardado llenar todos los datos -->
+                                        <div  class="alert alert-danger alert-dismissible fade show ocultar" role="alert" id="datos_incorrectos">
+                                              <strong>Verifica la informacion  </strong> existen datos no correctos!
+                                          <span aria-hidden="true">&times;</span>
+                                        </div>
+
+                                    <!-- Imagen cargando -->
+                                          <center><img src="../imagenes/cargar.gif" class="ocultar" id="carga" width="40" height="40"></center>
+
+                                     <!-- Imagen cargando 2 "completa" -->
+                                          <div class="absoluta ocultar" id="imagen_cargar_2"> <img src="../imagenes/cargar2.gif" ></div>
+
+
+
+
+                              <div class="form-group p-4">
+                                <button onclick="guardar_datos()" type="button" class="btn btn-primary btn-block" id="addNew">Registrarse</button>
+                              </div>
+                        </form>    
+                  
+                                
+                      </div>
+                    </div>
+
+                   
+
+                  <div class="col-md-3"> </div> 
+                  
+              
+              </div>
+            </div> 
+
+
+
+<!-- Modal respuesta -->
+<div class="modal fade" id="modal_respuesta_2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Proceso exitoso !</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <!-- exito -->    
+        <div class="alert alert-success" role="alert">
+                        <!-- <center><div id="div-resultado2"></div></center> -->
+                        Registro exitoso!
+                </div>
+                Diríjase a su correo electronico para confirmar su registro para realizar su compra!.
+
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+</body>
+
+  		<!-- Productos -->
+			<div class="" id="footer"></div> 
+
+	<script type="text/javascript" src="js/funciones.js"></script>
+	<script type="text/javascript" src="js/funciones_cliente.js"></script>
+
+</html>

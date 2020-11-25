@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>EQUIPO 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/hover.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+<!-- BOODSTRAP -->
+
+<link rel="stylesheet" href="css/bootstrap.min.css">  
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+<!-- FIN BOODSTRAP -->
+
+<!-- Fuente -->
+<link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
+
+  <script src="css/wow.js"></script>
+  <script>new WOW().init()</script>
+
+  <!-- Start css3menu.com HEAD section -->
+<link rel="stylesheet" href="MenuNav/style.css" type="text/css" /><style type="text/css">._css3m{display:none}</style>
+<!-- End css3menu.com HEAD section -->
+
+<!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
+<link rel="stylesheet" type="text/css" href="banner/objetosBanner/style.css" />
+
+<!-- End WOWSlider.com HEAD section -->
+
+<script>
+
+
+
+</script>
+
+<!-- Header -->
+<div class="" id="header"></div> 
+
+<div class="main">
+
+<p class="fuente" style="font-size:18px"><a href="index.html"><span style="color:#25C6C1">Inicio</span></a> -> <a style="color:#000" href="gestionAdministrador.html">Administrador</a> -> <span style="color:#9FACB9"> Gestion de clientes </span> </p>
+
+<div class="container p-1">
+    <div class="row">
+        <div class="col-md-3">
+ 
+        </div>
+        <div class="col-md-8 p-3">
+       
+ 
+	
+		<a href="gestionAdministrador.html"><img src="images/b.atras.png" width="42px"> Volver menu administrador </a>				
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="#"" data-toggle="modal" data-target="#agregarAdmin"><img src="images/b.agregar.png" width="42px"> Agregar administrador general </a>			
+
+			
+        </div> 
+				
+
+        <div class="col-md-3"></div>
+        
+    </div>
+</div>
+
+<div class="container p-1">
+    <div class="row">
+        <div class="col-md-2"></div>
+            
+        <div class="col-md-9">
+
+			<!-- eliminado -->    
+		         <div class="alert alert-danger ocultar" role="alert" id="eliminado">
+		             <center>Se eliminó el registro!</center>
+		         </div>
+
+            
+			<!-- Header -->
+				<div class="" id="tablaCliente"></div> 
+            		 
+        </div>
+    
+    </div>
+</div>
+
+
+</div>
+
+<!-- Productos -->
+			<div class="" id="footer"></div> 
+
+
+<div class="modal fade" id="agregarAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cliente a ser administrador</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="formulario" name="formulario">
+          
+            <label for="recipient-name" class="col-form-label">Correo electronico de persona a ser administrador :</label>
+            <input onkeyup="nombre_colocado()" type="text" class="form-control" id="nombre">
+           
+                        
+				
+            <label for="message-text" class="col-form-label">Contraseña personal (de usted)</label>
+             <input onkeyup="nombre_colocado()" type="text" class="form-control" id="nombre">
+           			
+		  
+		   	
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button onclick="insertar()" type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- modal update -->
+<div class="modal fade" id="actualizarPro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ingrese la información del producto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="form_actualizar" name="form_actualizar">
+          
+            <label for="recipient-name" class="col-form-label">Telefono:</label>
+            <input onkeyup="nombre_colocado()" type="text" class="form-control" id="nombre">
+				<!-- alerta nombre -->
+                                <div class="alert alert-danger alert-dismissible fade show ocultar" role="alert" id="error_nombre_update">
+                                    <strong>Error en el nombre!</strong> complete!!.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+           
+             
+
+            <label for="message-text" class="col-form-label">Mensaje enviar al usuario</label>
+            <textarea onkeyup="descripcion_colocado()" class="form-control" id="descripcion"></textarea>
+          
+		  	
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button onclick="insertar()" type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+			
+<script type="text/javascript" src="js/funciones.js"></script>
+<script type="text/javascript" src="js/funciones_cliente.js"></script>
+

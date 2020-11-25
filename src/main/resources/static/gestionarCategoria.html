@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>EQUIPO 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/hover.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css"> 
+<!-- BOODSTRAP -->
+
+<script type="text/javascript" src="jquery/jquery-3.5.0.min.js"></script>
+ 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+ 
+
+
+<!-- FIN BOODSTRAP -->
+
+<!-- Fuente -->
+<link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
+
+  <script src="css/wow.js"></script>
+  <script>new WOW().init()</script>
+
+  <!-- Start css3menu.com HEAD section -->
+<link rel="stylesheet" href="MenuNav/style.css" type="text/css" /><style type="text/css">._css3m{display:none}</style>
+<!-- End css3menu.com HEAD section -->
+
+<!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
+<link rel="stylesheet" type="text/css" href="banner/objetosBanner/style.css" />
+
+<!-- End WOWSlider.com HEAD section -->
+
+<!-- Header -->
+<div class="" id="header"></div> 
+
+<div class="main">
+
+<a href="gestionAdministrador.html"><img src="images/b.atras.png" width="42px"> Volver menu administrador</a>	
+
+<div class="container p-1">
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6 p-3">
+            <div class="card card-body center">
+ 
+				 <form name="formCategoria" id="formCategoria" method="post" enctype="multipart/form-data" >  
+				
+				       <div class="form-group" enctype="multipart/form-data">
+							<label for="exampleInputEmail1"><b>Nombre de nueva categoría</b></label>
+                            <input onkeyup="nombre_colocado()" type="text" class="form-control" id="nombre"  placeholder="Ingrese el nombre de categoria">        								
+						</div>
+						
+						
+						
+							<input onclick="registrarCategoria()" class="btn btn-primary" value="Registrar Categoria" id="regCategoria">  
+                    </form>
+
+                    
+            </div>
+        </div>
+
+		        <div class="col-md-3">
+				</div>
+				
+				<div class="col-md-2">
+				</div>
+
+				<div class="col-md-8">
+					 <!-- eliminado -->    
+		                <div class="alert alert-danger ocultar" role="alert" id="eliminado">
+		                    <center>Se eliminó el registro!</center>
+		                </div>
+
+					<!-- alerta no nombre -->    
+		                <div class="alert alert-danger ocultar" role="alert" id="categoria_existente">
+		                    <center>El nombre de la categoria, ya se encuentra registrada !</center>
+		                </div>
+
+					<!-- alerta no nombre -->    
+		                <div class="alert alert-danger ocultar" role="alert" id="agregadaCategoria">
+		                    <center>Se agrego !</center>
+		                </div>
+	
+				</div>
+
+			
+				<div class="col-md-2">
+				</div>
+    </div>
+</div>
+
+
+		<div class="container p-1">
+		    <div class="row">
+		        <div class="col-md-3"></div>
+		            
+		        <div class="col-md-6">
+		            
+					<!-- Header -->
+						<div class="" id="tablaCategoria"></div> 
+		            		 
+		        </div>
+		    
+		    </div>
+		</div>
+
+<!-- Productos -->
+		
+</div>	
+
+			
+	<div class="" id="footer"></div> 
+
+	
+<script type="text/javascript" src="js/funciones.js"></script>
+<script type="text/javascript" src="js/funciones_categoria.js"></script>
+
+
+			

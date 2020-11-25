@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>EQUIPO 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/hover.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+<!-- BOODSTRAP -->
+
+<link rel="stylesheet" href="css/bootstrap.min.css">  
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+ <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+-->
+
+<!-- FIN BOODSTRAP -->
+
+<!-- Fuente -->
+<link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
+
+  <script src="css/wow.js"></script>
+  <script>new WOW().init()</script>
+
+  <!-- Start css3menu.com HEAD section -->
+<link rel="stylesheet" href="MenuNav/style.css" type="text/css" /><style type="text/css">._css3m{display:none}</style>
+<!-- End css3menu.com HEAD section -->
+
+<!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
+<link rel="stylesheet" type="text/css" href="banner/objetosBanner/style.css" />
+
+<!-- End WOWSlider.com HEAD section -->
+
+				
+
+
+
+<!-- Header -->
+<div class="" id="header"></div> 
+
+<div class="container p-1">
+    <div class="row">
+        <div class="col-md-1">
+ 
+        </div>
+        <div class="col-md-9 p-3">
+	
+			<a href="gestionAdministrador.html"><img src="images/b.atras.png" width="42px"> Volver menu administrador </a>				
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="#" data-toggle="modal" data-target="#agregarPro"><img src="images/b.agregar.png" width="42px"> Agregar nuevo producto </a>			
+
+        </div> 
+
+
+        <div class="col-md-2"></div>
+        
+    </div>
+</div>
+
+<div class="container p-1">
+    <div class="row">
+        <div class="col-md-1"></div>
+            
+        <div class="col-md-10">
+			
+			
+				<!-- eliminado -->    
+		                <div class="alert alert-danger ocultar" role="alert" id="eliminado">
+		                    <center>Se eliminó el registro!</center>
+		                </div> 
+				
+            
+			<!-- Header -->
+				<div class="" id="tablaProducto"></div> 
+            		 
+        </div>
+    
+    </div>
+</div>
+
+<!-- agregar Producto-->
+<div class="modal fade" id="agregarPro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ingrese la información del producto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		<form action="#" method="post" enctype="multipart/form-data">
+        <!-- 
+			<form id="formulario" name="formulario" method="post" enctype="multipart/form-data">
+          -->
+            <label for="recipient-name" class="col-form-label">Nombre:</label>
+            <input onkeyup="nombre_colocado()" type="text" class="form-control" id="nombre">
+				<!-- alerta nombre -->
+                                <div class="alert alert-danger alert-dismissible fade show ocultar" role="alert" id="error_nombre">
+                                    <strong>Error en el nombre!</strong> complete!!.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+           
+            <label for="message-text" class="col-form-label">Precio:</label>
+            <input onkeyup="precio_colocado()" type="number" class="form-control" id="precio">
+
+			<input type="hidden" value="0" id="inicio">
+         
+				<!-- alerta descripcion -->
+                     <div class="alert alert-danger alert-dismissible fade show ocultar" role="alert" id="error_precio">
+                           <strong>Error en el precio!</strong> intente colocarle una valor!!.
+                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                     	    <span aria-hidden="true">&times;</span>
+                         </button>
+                      </div>	
+				
+            <label for="message-text" class="col-form-label">Descripción</label>
+            <textarea onkeyup="descripcion_colocado()" class="form-control" id="descripcion"></textarea>
+				<!-- alerta descripcion -->
+                     <div class="alert alert-danger alert-dismissible fade show ocultar" role="alert" id="error_descripcion">
+                           <strong>Error en la descripcion!</strong> intente llenarla!!.
+                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                     	    <span aria-hidden="true">&times;</span>
+                         </button>
+                      </div>
+
+	          <!-- Categorias -->
+				<div class="row">
+	    		  <div class="form-group col-md-6">
+					<div class="" id="tablaCategoria"></div>
+				  </div>	
+		          <div class="form-group col-md-5">
+	      			<label for="inputPassword4">Cantidad de unidades</label>
+					<select class="form-control" id="cantidad">
+			    		<option>Stock</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				  </div>
+				</div>
+			 
+	       	  <div class="form-group">	
+			    <label for="exampleFormControlFile1">Seleccione imagenes del producto</label>
+	                 <input type="file" class="form-control-sm" accept="image/*" name="imagen1">
+	                 <input type="file" class="form-control-sm" accept="image/*" name="imagen2">
+	                 <input type="file" class="form-control-sm" accept="image/*" name="imagen3">
+	        	</div>
+        </form>
+
+      </div>
+
+
+	      <div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+	
+			    <input type="button" class="btn btn-primary" value="Agregar" id="ingProducto">
+	                   
+	      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Productos -->
+			<div class="" id="footer"></div> 
+
+<!-- modal update -->
+<div class="modal fade" id="actualizarPro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+			<h4 class="fuente" style="font-size:18px">Modificar </h4> 
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		<form action="#" method="post" enctype="multipart/form-data">
+        <!-- 
+			<form id="formulario" name="formulario" method="post" enctype="multipart/form-data">
+          -->
+            <input type="hidden" class="form-control" id="id">
+
+			<label for="recipient-name" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombreU">
+           
+            <label for="message-text" class="col-form-label">Precio:</label>
+            <input type="number" class="form-control" id="precioU">
+
+			<input type="hidden" value="0" id="inicioU">
+         		
+            <label for="message-text" class="col-form-label">Descripción</label>
+            <textarea class="form-control" id="descripcionU"></textarea>
+
+          <!-- Categorias -->
+			<div class="row">
+    		  <div class="form-group col-md-6">
+				<div class="" id="tablaCategoria2"></div>
+			  </div>	
+	          <div class="form-group col-md-5">
+      			<label for="inputPassword4">Cantidad de unidades</label>
+				<select class="form-control" id="cantidadU">
+		    		<option>Stock</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			  </div>
+			</div>
+			
+        </form>
+
+      </div>
+
+      <div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+
+		    <input type="submit" class="btn btn-primary" value="Agregar" id="ingProductoU">
+                   
+      </div>
+    </div>
+  </div>
+</div>
+
+	
+
+<!-- Llamado de categorias-->
+		<script type="text/javascript">
+		     $(document).ready(function() {
+		       	$.getJSON('http://localhost:9091/api/v1/categoria', function(json) {
+		        	var tr=[];
+		 				 tr.push('<label for="exampleFormControlSelect1">Selecciona una categoria</label>');
+						 tr.push('<select onclick="categoria_colocado()" class="form-control" id="categoriaId">');	
+						 tr.push('<option>Selecciona una categoria</option>');
+					for (var i = 0; i < json.length; i++) {	
+	           			 tr.push('<option value="'+ json[i].id + '">'+ json[i].nombre + '</option>');
+			 		}
+			   			 tr.push('</select>');
+					$('#tablaCategoria').append($(tr.join('')));  
+					$('#tablaCategoria2').append($(tr.join('')));         		
+				 });
+			  });
+	
+	
+       </script>
+		      
+
+<script type="text/javascript" src="js/funciones.js"></script>
+<script type="text/javascript" src="js/funciones_producto.js"></script>
+
