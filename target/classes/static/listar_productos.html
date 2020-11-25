@@ -1,0 +1,36 @@
+ <table class="table" id="tabla"> 
+
+		 
+				
+				<script type="text/javascript">
+				    $(document).ready(function() {
+				      $.getJSON('http://localhost:9091/api/v1/producto', function(json) {
+				        var tr=[];
+				        for (var i = 0; i < json.length; i++) {
+				          tr.push('<div class="productos_main hvr-grow">');
+						  tr.push('<a href="producto.html?id='+json[i].id+'">');
+				          //tr.push('<td>' + json[i].nombre + '</td>');
+				          tr.push('<div class="etiqueta_nombre">');
+				          tr.push('<p class="fuente" style="text-align: center; text-top:20px"><span style="color:#fff; font-size:22px;" >' + json[i].nombre + '</span></p>');
+				          tr.push('</div>');
+						  tr.push('<a><img src="http://localhost:9091/api/v1/producto/pic/' + json[i].imagen1 + '" width="100%" class="rounded"></a>');	
+				          //tr.push('<img src="admin/productos/archivos/" width="100%"  alt="audifonos1">');
+				          tr.push('<div>');
+						  tr.push('<p class="fuente" style="text-align: center; text-top:20px">');
+						  tr.push('<span style="color:#45639E; font-size:22px;"  ><a>$ '+json[i].precio);
+						  tr.push('</a></span>');
+						  tr.push('</p>');
+						  tr.push('</div>');
+						  tr.push('</div>');
+				        }
+				        $('#tabla').append($(tr.join('')));
+				      });
+				    });
+				  </script>
+
+
+
+
+
+
+

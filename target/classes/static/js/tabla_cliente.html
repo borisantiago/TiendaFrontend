@@ -1,0 +1,101 @@
+<div class="card card-body">
+	<table class="table table-striped" id="tabla2" border="2px">
+			<tr>
+				<th  class="fuente" style="font-size:15px">&nbsp Nombre &nbsp</th>
+				<th class="fuente" style="font-size:15px">&nbsp Apellido &nbsp</th>	
+				<th class="fuente" style="font-size:15px">&nbsp Email &nbsp</th>	
+				<th class="fuente" style="font-size:15px">&nbsp Telefono &nbsp</th>	
+				<th class="fuente" style="font-size:15px">&nbsp Ciudad &nbsp</th>							
+				<th colspan="2" class="fuente" style="font-size:15px">&nbsp Funcion &nbsp</th>
+			</tr>
+			
+	</table>
+</div>
+
+<script type="text/javascript">
+
+		$(document).ready(function() {
+			$.getJSON('http://localhost:9091/api/v1/cliente', function(data) {
+				var tr=[];
+				for (var i = 0; i < data.length; i++) {
+					tr.push('<tr id="'+data[i].id+'">');
+					tr.push('<td>' + data[i].nombre + '</td>');	
+					tr.push('<td>' + data[i].apellido + '</td>');
+					tr.push('<td>' + data[i].email + '</td>');
+					tr.push('<td>' + data[i].telefono + '</td>');
+					tr.push('<td>' + data[i].ciudad + '</td>');
+					tr.push('<td>' + '<a data-toggle="modal" data-target="#actualizarPro"> <img src="../images/b.mensaje.png" width="38px">  </a>' + '</td');
+					tr.push('<td>' + '<a onclick="eliminarCliente(' + data[i].id + ')" ><img src="../images/b.eliminar.png" width="42px"></a>' + '</td'); 	
+					tr.push('<td>' + '</td'); 	
+					
+					tr.push('</tr>');
+				}
+				$('#tabla2').append($(tr.join('')));
+			});						
+		});
+		
+</script>
+
+
+
+
+<!-- 
+<table class="table table-striped">
+  <thead>
+    <tr>
+	  
+	  <th scope="col">Inicio</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Descripcion</th>
+      <th scope="col">Categoria</th>
+	  <th scope="col" colspan="2">Función</th>
+    </tr>
+  </thead>
+  <tbody id="contenido">
+    
+    
+  </tbody>
+</table>
+
+
+
+
+<div id="tablaProducto">
+<script>
+
+var contenido = document.querySelector('#contenido')
+
+fetch('http://localhost:8040/api/productos')
+.then(res => res.json())
+.then(datos => {
+	//console.log(datos)
+	c_tabla(datos)
+})
+
+ function c_tabla(datos){
+	console.log(datos)
+	contenido.innerHTML =''
+	for(let valor of datos){
+		//console.log(valor.nombre)
+		contenido.innerHTML += `
+		<tr>
+		      
+			  <td> ${valor.inicio ? "Activo":"Eliminar"} </td>
+			  <td> ${valor.nombre} </td>
+			  <td> ${valor.precio} </td>
+		      <td> ${valor.descripcion} </td>
+		      <td> ${valor.categoriaId} </td>
+			  <td> Modificar </td>
+			  <td> Eliminar </td>	
+		 </tr> 
+	
+		`
+	}
+	
+}
+funcion
+</script>
+
+-->
+	

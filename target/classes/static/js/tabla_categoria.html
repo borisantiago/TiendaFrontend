@@ -1,0 +1,114 @@
+
+
+
+<div class="card card-body" style="text-align:center;">
+	<table class="table table-striped" id="tabla1" border="2px">
+			<tr>
+				<th class="fuente" style="font-size:17px">&nbsp Nombre &nbsp </th>							
+				<th colspan="2" class="fuente" style="font-size:17px">&nbsp Funcion &nbsp</th>
+			</tr>
+			
+	</table>
+</div>
+
+<script type="text/javascript">
+
+		$(document).ready(function() {
+			$.getJSON('http://localhost:9091/api/v1/categoria', function(data) {
+				var tr=[];
+				for (var i = 0; i < data.length; i++) {
+					tr.push('<tr id="'+data[i].id+'">');
+					tr.push('<td class="fuente" style="font-size:14px" >' + data[i].nombre + '</td>');
+					
+					tr.push('<td>' + '<a onclick="ocuparId(' + data[i].id + ')" data-toggle="modal" data-target="#actualizarCat"><img src="../images/b.editar.png" width="42px">  </a>' + '</td');
+					
+						
+					tr.push('<td>' + '<a onclick="eliminarCategoria('+data[i].id+')"><img src="../images/b.eliminar.png" width="42px"></a>' + '</td'); 	
+					tr.push('<td>');
+						//tr.push('<a data-toggle="modal" data-target="#modalwarning'+data[i].id+'" class="btn btn-primary"> <i class="fas fa-trash-alt ml-2"></i></a>');
+					/*	tr.push('<div data-toggle="modal" class="modal modal-warning fade in" id="modalwarning'+data[i].id+'">');
+						tr.push(' <div class="modal-dialog">');
+						tr.push('	<div class="modal-content">');
+						tr.push('		<div class="modal-header">');
+						tr.push('			<h5 class="modal-title text-dark">Si borra la categoria, tambien se borraran todos sus productos</h5>');
+						tr.push('			<button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">');
+						tr.push('			<span aria-hidden="true">&times;</span></button>');
+						tr.push('		</div>');
+						tr.push('		<div class="modal-body">');
+						tr.push('			<h3 class="text-dark"> Categoría: '+data[i].nombre+'</h3>');
+						tr.push('		</div>');
+						tr.push('		<div class="modal-footer">');
+						tr.push('			<button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>');
+						tr.push('			<button onclick="eliminarCategoria('+ data[i].id +')" type="button" class="btn btn-outline borrar"  id='+data[i].id+'><i class="fa fa-check"></i>&nbsp;Eliminar</button>');
+						tr.push('		</div>');
+						tr.push('	</div>');
+						tr.push(' </div>');
+						tr.push('</div>	');				
+						tr.push('</td>');
+					*/
+					tr.push('</tr>');
+					
+						
+				}
+				$('#tabla1').append($(tr.join('')));
+				
+				
+				//envio el dato a modal
+				
+				
+			});						
+		});
+		
+		function ocuparId(id){
+			//$("#div-resultado2").html(id);
+			$(document).ready(function(){
+				      $.getJSON('http://localhost:9091/api/v1/categoria/'+id, function(dato) {
+							document.getElementById("id").value = id;
+							document.getElementById("nombreU").value = dato.nombre;
+			
+							
+					  });
+				  });
+		}
+		
+		
+
+</script>
+
+				
+<!-- modal update -->
+<div class="modal fade" id="actualizarCat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Puede modificar el nombre</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="form_actualizar" name="form_actualizar">
+
+		<input type="hidden" class="form-control" id="id">
+          
+            <label for="recipient-name" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombreU">
+				<!-- alerta nombre -->
+                                <div class="alert alert-danger alert-dismissible fade show ocultar" role="alert" id="error_nombre">
+                                    <strong>Error en el nombre!</strong> complete!!.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+           
+          
+		  	
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <input type="submit" class="btn btn-primary" value="Agregar" id="ingCategoriaU">
+      </div>
+    </div>
+  </div>
+</div>

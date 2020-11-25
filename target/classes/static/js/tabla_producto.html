@@ -1,0 +1,56 @@
+<div class="card card-body">
+	<table class="table table-striped" id="tabla1" border="2px">
+			<tr>
+				<th class="fuente" style="font-size:15px">&nbsp Inicio &nbsp</th>
+				<th class="fuente" style="font-size:15px">&nbsp Imagen &nbsp</th>
+				<th class="fuente" style="font-size:15px">&nbsp Nombre &nbsp</th>	
+				<th class="fuente" style="font-size:15px">&nbsp Precio &nbsp</th>	
+				<th class="fuente" style="font-size:15px">&nbsp Descripción &nbsp</th>								
+				<th colspan="2" class="fuente" style="font-size:15px">&nbsp Funcion &nbsp</th>
+			</tr>
+			
+	</table>
+</div>
+
+<script type="text/javascript">
+
+		$(document).ready(function() {
+			$.getJSON('http://localhost:9091/api/v1/producto', function(data) {
+				var tr=[];
+				for (var i = 0; i < data.length; i++) {
+					tr.push('<tr id="'+data[i].id+'">');
+					tr.push('<td class="fuente">' + data[i].inicio + '</td>');	
+					tr.push('<td><img src="http://localhost:9091/api/v1/producto/pic/' + data[i].imagen1 + '" width="70" class="rounded"></td>');	
+					tr.push('<td class="fuente">' + data[i].nombre + '</td>');
+					tr.push('<td class="fuente">' + data[i].precio + '</td>');
+					tr.push('<td class="fuente">' + data[i].descripcion + '</td>');
+					tr.push('<td><a onclick="ocuparIdPro('+data[i].id+')" data-toggle="modal" data-target="#actualizarPro"><img src="../images/b.editar.png" width="45px">  </a></td');
+					tr.push('<td><a onclick="eliminarProducto('+ data[i].id +')"><img src="../images/b.eliminar.png" width="45px"></a></td'); 	
+					tr.push('<td>' + '</td'); 	
+					
+					tr.push('</tr>');
+				}
+				$('#tabla1').append($(tr.join('')));
+			});						
+		});
+		
+		function ocuparIdPro(id){
+			$("#div-resultado2").html(id);
+			$(document).ready(function(){
+				      $.getJSON('http://localhost:9091/api/v1/producto/'+id, function(dato) {
+							document.getElementById("id").value = id;
+							document.getElementById("nombreU").value = dato.nombre;
+							document.getElementById("precioU").value = dato.precio;
+							document.getElementById("descripcionU").value = dato.descripcion;
+							document.getElementById("categoriaId").value = dato.categoriaId;
+							document.getElementById("cantidadU").value = dato.cantidad;
+							
+					  });
+				  });
+			
+		}
+		
+</script>
+
+
+	
